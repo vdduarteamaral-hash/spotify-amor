@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nós dois ❤️</title>
+<title>Vini e Laurinha ❤️</title>
 
 <style>
 body{
@@ -40,11 +40,6 @@ h2{
     margin-bottom:15px;
 }
 
-audio{
-    width:100%;
-    margin-bottom:25px;
-}
-
 .timer{
     display:flex;
     justify-content:space-between;
@@ -76,10 +71,10 @@ audio{
 
     <img src="foto.jpg" class="cover">
 
-    <h2>Iris</h2>
-    <div class="artist">Goo Goo Dolls</div>
+    <h2>Vini e Laurinha</h2>
+    <div class="artist">Nossa música ❤️</div>
 
-    <audio controls autoplay loop>
+    <audio id="player" autoplay loop>
         <source src="iris.mp3" type="audio/mpeg">
     </audio>
 
@@ -132,6 +127,13 @@ function updateTimer(){
     document.getElementById("minutes").textContent = minutes;
     document.getElementById("seconds").textContent = seconds;
 }
+
+// força tocar após primeiro toque (necessário em celulares)
+const player = document.getElementById("player");
+
+document.addEventListener("click", function(){
+    player.play();
+});
 
 setInterval(updateTimer,1000);
 updateTimer();
